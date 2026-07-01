@@ -209,16 +209,19 @@ void NativeCameraPlugin::StartStream() {
   is_streaming_.store(true);
 
   int delay_ms = 1000 / std::max(1, std::min(fps_, 60));
-  std::thread([this, delay_ms]() {
+  streaming_thread_ = std::thread([this, delay_ms]() {
     while (is_streaming_.load()) {
       ReadFrame();
       std::this_thread::sleep_for(std::chrono::milliseconds(delay_ms));
     }
-  }).detach();
+  });
 }
 
 void NativeCameraPlugin::StopStream() {
   is_streaming_.store(false);
+  if (streaming_thread_.joinable()) {
+    streaming_thread_.join();
+  }
 }
 
 void NativeCameraPlugin::ReadFrame() {

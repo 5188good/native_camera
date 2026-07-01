@@ -9,7 +9,7 @@ class NativeCamera {
   static const _frameChannel = EventChannel('native_camera/frames');
 
   StreamSubscription? _frameSub;
-  final _frameController = StreamController<CameraFrame>.broadcast();
+  StreamController<CameraFrame> _frameController = StreamController<CameraFrame>.broadcast();
 
   /// 获取摄像头列表
   static Future<List<String>> getCameras() async {
@@ -74,6 +74,15 @@ class NativeCamera {
 
   /// 开始推送帧数据
   Stream<CameraFrame> startStream() {
+    // Cancel any existing subscription and close old controller
+    _frameSub?.cancel();
+    _frameSub = null;
+    if (!_frameController.isClosed) {
+      _frameController.close();
+    }
+    // Create fresh controller for this stream session
+    _frameController = StreamController<CameraFrame>.broadcast();
+
     _channel.invokeMethod('startStream');
     _frameSub = _frameChannel.receiveBroadcastStream().listen((data) {
       if (data is Map) {

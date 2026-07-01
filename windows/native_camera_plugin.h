@@ -10,6 +10,7 @@
 #include <memory>
 #include <mutex>
 #include <string>
+#include <thread>
 #include <vector>
 #include <wrl/client.h>
 #include <mfapi.h>
@@ -42,6 +43,7 @@ class NativeCameraPlugin : public flutter::Plugin {
   UINT32 current_height_ = 480;
   int fps_ = 15;
   std::atomic<bool> is_streaming_{false};
+  std::thread streaming_thread_;
   GUID video_format_ = {0};
 
   std::unique_ptr<flutter::EventSink<flutter::EncodableValue>> event_sink_;
