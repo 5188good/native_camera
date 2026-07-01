@@ -35,3 +35,5 @@ build/
 debug_*.raw
 debug_*.bmp
 debug_*.ppm
+# Example binaries
+example/bin/
