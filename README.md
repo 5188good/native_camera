@@ -1,5 +1,8 @@
 # native_camera
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows-blue)](https://github.com/5188good/native_camera)
+
 High-performance Windows camera plugin for Flutter. Direct Media Foundation capture with NV12/YUY2 → BGRA software conversion — no IMFCaptureEngine, no Direct3D dependency, just raw frames delivered to your Dart code.
 
 ## Why not camera_windows?
@@ -30,7 +33,7 @@ If you need the raw pixel data for CV, ML, or custom processing — this is your
 dependencies:
   native_camera:
     git:
-      url: https://github.com/yourusername/native_camera.git
+      url: https://github.com/5188good/native_camera.git
 ```
 
 ## Quick Start

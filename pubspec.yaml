@@ -1,9 +1,9 @@
 name: native_camera
 description: "High-performance Windows camera plugin for Flutter using Media Foundation. Direct NV12/YUY2 capture with zero-copy frame delivery — no IMFCaptureEngine overhead."
 version: 0.1.0
-homepage: https://github.com/yourusername/native_camera
-repository: https://github.com/yourusername/native_camera
-issue_tracker: https://github.com/yourusername/native_camera/issues
+homepage: https://github.com/5188good/native_camera
+repository: https://github.com/5188good/native_camera
+issue_tracker: https://github.com/5188good/native_camera/issues
 
 environment:
   sdk: ^3.7.2
