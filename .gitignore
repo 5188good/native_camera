@@ -37,3 +37,4 @@ debug_*.bmp
 debug_*.ppm
 # Example binaries
 example/bin/
+example/pubspec.lock
