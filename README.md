@@ -5,6 +5,10 @@
 
 High-performance Windows camera plugin for Flutter. Direct Media Foundation capture with NV12/YUY2 → BGRA software conversion — no IMFCaptureEngine, no Direct3D dependency, just raw frames delivered to your Dart code.
 
+## Screenshot
+
+![native_camera preview](screenshot.png)
+
 ## Why not camera_windows?
 
 | | native_camera | camera_windows |
